@@ -1,0 +1,275 @@
+[
+  { "inputs": [], "name": "AlreadyCast", "type": "error" },
+  { "inputs": [], "name": "InvalidIndex", "type": "error" },
+  { "inputs": [], "name": "Unauthorized", "type": "error" },
+  { "inputs": [], "name": "Uncast", "type": "error" },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "contract IERC1155",
+        "name": "token",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "index",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "balance",
+        "type": "uint256"
+      }
+    ],
+    "name": "Agreed",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "contract IERC1155",
+        "name": "token",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "index",
+        "type": "uint256"
+      }
+    ],
+    "name": "Posted",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract IERC1155",
+        "name": "token",
+        "type": "address"
+      },
+      { "internalType": "uint256", "name": "id", "type": "uint256" },
+      { "internalType": "uint256", "name": "index", "type": "uint256" }
+    ],
+    "name": "agree",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "user", "type": "address" },
+      {
+        "internalType": "contract IERC1155",
+        "name": "token",
+        "type": "address"
+      },
+      { "internalType": "uint256", "name": "id", "type": "uint256" },
+      { "internalType": "uint256", "name": "index", "type": "uint256" }
+    ],
+    "name": "cast",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract IERC1155",
+        "name": "token",
+        "type": "address"
+      },
+      { "internalType": "uint256", "name": "id", "type": "uint256" },
+      { "internalType": "uint256", "name": "index", "type": "uint256" }
+    ],
+    "name": "disagree",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract IERC1155",
+        "name": "token",
+        "type": "address"
+      },
+      { "internalType": "uint256", "name": "id", "type": "uint256" },
+      { "internalType": "uint256", "name": "count", "type": "uint256" }
+    ],
+    "name": "getLastPosts",
+    "outputs": [
+      {
+        "components": [
+          { "internalType": "uint96", "name": "datedTo", "type": "uint96" },
+          { "internalType": "address", "name": "poster", "type": "address" },
+          { "internalType": "string", "name": "message", "type": "string" },
+          {
+            "components": [
+              {
+                "internalType": "address",
+                "name": "target",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "ethers",
+                "type": "uint256"
+              },
+              { "internalType": "bytes", "name": "callData", "type": "bytes" }
+            ],
+            "internalType": "struct Posts.Call",
+            "name": "execution",
+            "type": "tuple"
+          },
+          { "internalType": "uint256", "name": "agreed", "type": "uint256" }
+        ],
+        "internalType": "struct Posts.Post[]",
+        "name": "content",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract IERC1155",
+        "name": "token",
+        "type": "address"
+      },
+      { "internalType": "uint256", "name": "id", "type": "uint256" },
+      { "internalType": "uint256", "name": "index", "type": "uint256" }
+    ],
+    "name": "getPost",
+    "outputs": [
+      {
+        "components": [
+          { "internalType": "uint96", "name": "datedTo", "type": "uint96" },
+          { "internalType": "address", "name": "poster", "type": "address" },
+          { "internalType": "string", "name": "message", "type": "string" },
+          {
+            "components": [
+              {
+                "internalType": "address",
+                "name": "target",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "ethers",
+                "type": "uint256"
+              },
+              { "internalType": "bytes", "name": "callData", "type": "bytes" }
+            ],
+            "internalType": "struct Posts.Call",
+            "name": "execution",
+            "type": "tuple"
+          },
+          { "internalType": "uint256", "name": "agreed", "type": "uint256" }
+        ],
+        "internalType": "struct Posts.Post",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract IERC1155",
+        "name": "token",
+        "type": "address"
+      },
+      { "internalType": "uint256", "name": "id", "type": "uint256" }
+    ],
+    "name": "getPosts",
+    "outputs": [
+      {
+        "components": [
+          { "internalType": "uint96", "name": "datedTo", "type": "uint96" },
+          { "internalType": "address", "name": "poster", "type": "address" },
+          { "internalType": "string", "name": "message", "type": "string" },
+          {
+            "components": [
+              {
+                "internalType": "address",
+                "name": "target",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "ethers",
+                "type": "uint256"
+              },
+              { "internalType": "bytes", "name": "callData", "type": "bytes" }
+            ],
+            "internalType": "struct Posts.Call",
+            "name": "execution",
+            "type": "tuple"
+          },
+          { "internalType": "uint256", "name": "agreed", "type": "uint256" }
+        ],
+        "internalType": "struct Posts.Post[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract IERC1155",
+        "name": "token",
+        "type": "address"
+      },
+      { "internalType": "uint256", "name": "id", "type": "uint256" },
+      { "internalType": "string", "name": "message", "type": "string" },
+      {
+        "components": [
+          { "internalType": "address", "name": "target", "type": "address" },
+          { "internalType": "uint256", "name": "ethers", "type": "uint256" },
+          { "internalType": "bytes", "name": "callData", "type": "bytes" }
+        ],
+        "internalType": "struct Posts.Call",
+        "name": "call",
+        "type": "tuple"
+      }
+    ],
+    "name": "post",
+    "outputs": [
+      { "internalType": "uint256", "name": "index", "type": "uint256" }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

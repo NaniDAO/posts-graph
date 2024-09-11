@@ -1,0 +1,17 @@
+{
+  "version": "1",
+  "name": "posts",
+  "abis": {
+    "Posts": {
+      "path": "./posts.json"
+    }
+  },
+  "instances": [
+    {
+      "abi": "Posts",
+      "address": "0x000000000065C053566400B198e72c6C82F8B83B",
+      "startBlock": 19454046,
+      "chain": "base"
+    }
+  ]
+}
